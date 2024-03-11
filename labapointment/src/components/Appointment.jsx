@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-
+import './style.css';
 
 function Appointment() {
-  
-const [fullName, setFullName] = useState('');
+  const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [appointmentDate, setAppointmentDate] = useState('');
@@ -25,10 +24,10 @@ const [fullName, setFullName] = useState('');
 
   return (
     <div>
-      <h2>Make an Appointment</h2>
+      <h2 style={{ color: '#00264d' }}>Make an Appointment</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="fullName">Full Name:</label>
+          <label htmlFor="fullName" style={{ color: '#00264d' }}>Full Name:</label>
           <input
             type="text"
             className="form-control"
@@ -39,7 +38,7 @@ const [fullName, setFullName] = useState('');
           />
         </div>
         <div className="form-group">
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email" style={{ color: '#00264d' }}>Email:</label>
           <input
             type="email"
             className="form-control"
@@ -50,7 +49,7 @@ const [fullName, setFullName] = useState('');
           />
         </div>
         <div className="form-group">
-          <label htmlFor="phone">Phone:</label>
+          <label htmlFor="phone" style={{ color: '#00264d' }}>Phone:</label>
           <input
             type="tel"
             className="form-control"
@@ -61,7 +60,7 @@ const [fullName, setFullName] = useState('');
           />
         </div>
         <div className="form-group">
-          <label htmlFor="appointmentDate">Appointment Date:</label>
+          <label htmlFor="appointmentDate" style={{ color: '#00264d' }}>Appointment Date:</label>
           <input
             type="date"
             className="form-control"
@@ -77,4 +76,5 @@ const [fullName, setFullName] = useState('');
     </div>
   );
 }
+
 export default Appointment;
