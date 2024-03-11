@@ -2,10 +2,11 @@ import React from "react";
 
 import './dashboard.css';
 
+
 const VisitorDashboard = () => {
   return (
-    <div className="dashboard-container">
-      
+    <div className="dashboard-container" style={{backgroundImage: 'url("")'}}>
+
       <div className="content-container">
         <h1>Welcome, Visitor!</h1>
         <div className="dashboard-cards">
