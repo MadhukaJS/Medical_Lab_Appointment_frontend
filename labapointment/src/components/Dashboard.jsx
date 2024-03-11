@@ -37,8 +37,18 @@ export default function Dashboard() {
                 <a className="nav-link" href="/login">Log In</a>
               </li>
               <li className="nav-item">
+                <p className="nav-link">|</p>
+              </li>
+              <li className="nav-item">
                 <a className="nav-link" href="/registration">Sign Up</a>
               </li>
+              <li className="nav-item">
+                <p className="nav-link">|</p>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/appointment">Make an appointment</a>
+              </li>
+            
             </ul>
           </div>
         </div>
@@ -74,7 +84,7 @@ export default function Dashboard() {
             <div className="card-body">
               <h5 className="card-title">Blood pressure test</h5>
               <p className="card-text">Blood pressure is the term used to describe the strength with which your blood pushes on the sides of your arteries as it's pumped around your body..</p>
-              <a href="/Addbookings" className="btn btn-primary">Book a time for test</a>
+             
             </div>
           </div>
         </div>
@@ -85,7 +95,7 @@ export default function Dashboard() {
             <div className="card-body">
               <h5 className="card-title">Diabetes test</h5>
               <p className="card-text">This measures your blood sugar after an overnight fast (not eating). A fasting blood sugar level of 99 mg/dL or lower is normal, 100 to 125 mg/dL indicates you have prediabetes, and 126 mg/dL or higher indicates you have diabetes..</p>
-              <a href="/Addbookings" className="btn btn-primary">Book a time for test</a>
+              
             </div>
           </div>
         </div>
@@ -95,7 +105,7 @@ export default function Dashboard() {
             <div className="card-body">
               <h5 className="card-title">ECG test</h5>
               <p className="card-text">An electrocardiogram (ECG) is a simple, non-invasive test that records the electrical activity of the heart. An ECG can help diagnose certain heart conditions, including abnormal heart rhythms and coronary heart disease (heart attack and angina).</p>
-              <a href="/Addbookings" className="btn btn-primary">Book a time for test</a>
+              
             </div>
           </div>
         </div>
@@ -105,7 +115,7 @@ export default function Dashboard() {
             <div className="card-body">
               <h5 className="card-title">CT scan test</h5>
               <p className="card-text">A computerized tomography (CT) scan combines a series of X-ray images taken from different angles around your body and uses computer processing to create cross-sectional images (slices) of the bones, blood vessels and soft tissues inside your body.</p>
-              <a href="/Addbookings" className="btn btn-primary">Book a time for test</a>
+              
             </div>
           </div>
         </div>
@@ -115,7 +125,7 @@ export default function Dashboard() {
             <div className="card-body">
               <h5 className="card-title">Cholesterol test</h5>
               <p className="card-text">The cholesterol test, or screening, requires a simple blood draw. The cholesterol test checks your levels of: Low-density lipoprotein (LDL) or “bad” cholesterol. Having high levels of LDL cholesterol can lead to plaque buildup in your arteries and result in heart disease or stroke.</p>
-              <a href="/Addbookings" className="btn btn-primary">Book a time for test</a>
+              
             </div>
           </div>
         </div>
@@ -126,7 +136,7 @@ export default function Dashboard() {
             <div className="card-body">
               <h5 className="card-title">Thyroxine test</h5>
               <p className="card-text">A thyroxine test is a blood test that helps diagnose thyroid conditions. The thyroid is a small, butterfly-shaped gland at the base of your throat. Your thyroid makes hormones that control the way your body uses energy.</p>
-              <a href="/Addbookings" className="btn btn-primary">Book a time for test</a>
+              
             </div>
           </div>
         </div>
