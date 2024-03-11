@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './style.css';
+import backgroundImage from './background.jpg';
 
 function Appointment() {
   const [fullName, setFullName] = useState('');
@@ -23,7 +24,7 @@ function Appointment() {
   };
 
   return (
-    <div>
+    <div style={{ backgroundImage: `url(${backgroundImage})` }}>
       <h2 style={{ color: '#00264d' }}>Make an Appointment</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
