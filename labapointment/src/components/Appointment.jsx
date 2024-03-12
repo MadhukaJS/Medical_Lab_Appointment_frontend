@@ -12,8 +12,6 @@ function Appointment() {
   // Function to handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Perform form validation here if needed
-    // Submit form data to backend or perform other actions
     console.log('Form submitted:', { fullName, email, phone, appointmentDate });
     // Reset form fields
     setFullName('');
