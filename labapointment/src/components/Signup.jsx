@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './style.css';
 import backgroundImage from './background.jpg';
+import Swal from 'sweetalert2';
 
 function Signup() {
+    const navigate = useNavigate();
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
@@ -11,17 +15,65 @@ function Signup() {
   const [message, setMessage] = useState('');
 
   // Function to handle form submission
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('Form submitted:', { username, password, firstName, lastName, contactNumber });
-    // Reset form fields
-    setUsername('');
-    setPassword('');
-    setFirstName('');
-    setLastName('');
-    setContactNumber('');
-    setMessage('Signup request submitted successfully!');
+
+    const requestBody = {
+      username,
+      password,
+      firstName,
+      lastName,
+      contactNumber,
+    };
+
+    try {
+      const response = await fetch('http://localhost:8080/patients/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestBody),
+      });
+
+      if (response.ok) {
+        // Reset form fields
+        setUsername('');
+        setPassword('');
+        setFirstName('');
+        setLastName('');
+        setContactNumber('');
+
+        // Redirect to the dashboard
+        navigate('/dashboard');
+
+        // Show success SweetAlert
+        Swal.fire({
+          icon: 'success',
+          title: 'Signup Successful!',
+          text: 'You have successfully signed up!',
+        });
+      } else {
+        console.error('Error submitting signup request:', response.statusText);
+
+        // Show error SweetAlert
+        Swal.fire({
+          icon: 'error',
+          title: 'Signup Failed',
+          text: 'Error submitting signup request. Please try again.',
+        });
+      }
+    } catch (error) {
+      console.error('Error submitting signup request:', error);
+
+      // Show error SweetAlert
+      Swal.fire({
+        icon: 'error',
+        title: 'Signup Failed',
+        text: 'Error submitting signup request. Please try again.',
+      });
+    }
   };
+
 
   return (
     <div className="signup-container" style={{ backgroundImage: `url(${backgroundImage})`, justifyContent: 'center', alignItems: 'center' }}>
@@ -29,12 +81,12 @@ function Signup() {
         <h2 style={{ color: '#00264d', textAlign: 'center', marginTop: '10%' }}>Sign Up</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="username" style={{ color: '#00264d', display: 'block', marginBottom: '8px', textAlign: 'left' }}>Username:</label>
+            <label htmlFor="username" style={{ color: '#00264d', display: 'block', marginBottom: '8px', textAlign: 'left' }}>Email:</label>
             <input
               type="text"
               className="form-control"
               id="username"
-              placeholder="Enter your username"
+              placeholder="Enter your email"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
