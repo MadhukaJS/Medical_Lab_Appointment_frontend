@@ -6,18 +6,36 @@ import axios from 'axios';
 import { useLocation } from 'react-router';
 
 function Dashboard() {
-  const [open, setOpen] = useState('');
-  const [inprogress, setInprogress] = useState('');
-  const [repair, setRepair] = useState('');
-  const [closed, setClosed] = useState('');
+  const [appointmentCounts, setAppointmentCounts] = useState({ Confirmed: 0, Cancelled: 0 });
+  const [patientCount, setPatientCount] = useState(0);
+  const [loading, setLoading] = useState(true);
 
-  const location = useLocation();
-  const roleid = location.state;
-  
-  const variant = ['danger', 'info', 'warning', 'success'];
-  const titles = ['Total Complains', 'Total Reviewed Cases', 'Total on Repair cases', 'Total Reslove Cases'];
-  const numbers = [open, inprogress, repair, closed];
-  const iconlist = ['fas fa-exclamation', 'fas fa-user-check', 'fas fa-wrench', 'fas fa-check'];
+  useEffect(() => {
+    fetchAppointmentCounts();
+    fetchPatientCount();
+  }, []);
+
+  const fetchAppointmentCounts = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/appointments/countByStatus');
+      setAppointmentCounts(response.data);
+    } catch (error) {
+      console.error('Error fetching appointment counts:', error);
+    }
+  };
+
+  const fetchPatientCount = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/patients/count');
+      setPatientCount(response.data);
+    } catch (error) {
+      console.error('Error fetching patient count:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const { Confirmed, Cancelled } = appointmentCounts;
 
   return (
     <div className="d-flex">
@@ -25,11 +43,34 @@ function Dashboard() {
         <Sidebar />
       </div>
       <div className="flex-grow-1">
-        <Topbar
-          roleid={roleid}
-         />
+        <Topbar />
         <div className="p-4 mt-5">
-          
+          <Row>
+            <Col>
+              <Card bg="success" text="white">
+                <Card.Body>
+                  <Card.Title>Confirmed Appointments</Card.Title>
+                  <Card.Text>{loading ? 'Loading...' : Confirmed}</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col>
+              <Card bg="danger" text="white">
+                <Card.Body>
+                  <Card.Title>Cancelled Appointments</Card.Title>
+                  <Card.Text>{loading ? 'Loading...' : Cancelled}</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col>
+              <Card bg="primary" text="white">
+                <Card.Body>
+                  <Card.Title>Total Patients</Card.Title>
+                  <Card.Text>{loading ? 'Loading...' : patientCount}</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
         </div>
       </div>
     </div>
