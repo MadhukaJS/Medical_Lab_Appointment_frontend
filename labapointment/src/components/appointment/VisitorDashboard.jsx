@@ -20,7 +20,7 @@ const VisitorDashboard = () => {
             <h3>Lab Reports</h3>
             <p>View and update your profile information.</p>
             {/* Add routing logic for the "View Profile" button */}
-            <Link to="/profile" className="btn btn-primary">View Profile</Link>
+            <Link to="/my-reports" className="btn btn-primary">View Reports</Link>
           </div>
           <div className="card">
             <h3>Logout</h3>

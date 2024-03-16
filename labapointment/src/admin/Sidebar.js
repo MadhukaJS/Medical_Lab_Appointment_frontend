@@ -150,7 +150,7 @@ const Sidebar = () => {
                     <div className="bg-white py-2 collapse-inner rounded">
                     <a className="collapse-item" href="#" onClick={handleCreateRole}>
               <i className="fas fa-plus-circle"></i> Create</a>                        
-                        <a className="collapse-item" href="/user-role"><i class="fas fa-user"></i> View</a>
+                        <a className="collapse-item" href="/add-reports"><i class="fas fa-user"></i> View</a>
 
                     </div>
                 </div>

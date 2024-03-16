@@ -75,8 +75,6 @@ function MyAppointments() {
                   <td>{new Date(appointment.appointmentTime).toLocaleString()}</td>
                   <td>{appointment.test}</td>
                   <td>{appointment.status}</td>
-                 
-                  
                 </tr>
               ))}
             </tbody>
