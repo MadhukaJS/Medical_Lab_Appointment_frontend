@@ -7,6 +7,8 @@ import VisitorDashboard from './components/appointment/VisitorDashboard';
 import Signup from './components/Signup';
 import Home from './components/Home';
 import Login from './components/Login';
+import Appointments from './admin/Appointments';
+import MyAppointments from './components/MyAppointments';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path="/dashboard" element={<VisitorDashboard />} />
           <Route path="/registration" element={<Signup />} />
           <Route path="/admin-dashboard" element={<Dashboard />} />
+          <Route path="/appointments" element={<Appointments />} />
+          <Route path="/my-appointments" element={<MyAppointments />} />
 
         </Routes>
       </Router>

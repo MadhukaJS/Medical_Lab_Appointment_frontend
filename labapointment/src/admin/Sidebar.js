@@ -122,13 +122,13 @@ const Sidebar = () => {
                     aria-controls="collapseTwo">
                     <span>
                         <i className="fas fa-th-list"></i>
-                        Orginzation
+                        Appointments
                     </span>
                     <i className="fas fa-angle-right"></i>
                 </a>
                 <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div className="bg-white py-2 collapse-inner rounded">
-                        <a className="collapse-item" href="/organization-details"><i className="fas fa-plus-circle"></i> View</a>
+                        <a className="collapse-item" href="/appointments"><i className="fas fa-plus-circle"></i> View</a>
                         <a className="collapse-item" href="/organization-details-update"><i class="far fa-edit"></i>Update</a>
                         <a className="collapse-item" href="/organization-delete"><i class="fas fa-trash"></i> Delete</a>
 
@@ -141,7 +141,7 @@ const Sidebar = () => {
                     aria-controls="collapseUtilities">
                     <span>
                         <i className="fas fa-solid fa-hotel"></i>
-                        Role
+                        Reports
                     </span>
                     <i className="fas fa-angle-right"></i>
                 </a>

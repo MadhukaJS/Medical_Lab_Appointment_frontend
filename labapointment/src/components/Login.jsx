@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useCookies } from 'react-cookie';
 import './style.css';
 import backgroundImage from './background.jpg';
 
@@ -6,15 +7,42 @@ function Login() {
   const [usernameOrEmail, setUsernameOrEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const [, setCookie] = useCookies(); // Import useCookies hook
 
   // Function to handle form submission
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('Form submitted:', { usernameOrEmail, password });
-    // Reset form fields
-    setUsernameOrEmail('');
-    setPassword('');
-    setMessage('Login request submitted successfully!');
+
+    const requestBody = {
+      username: usernameOrEmail,
+      password,
+    };
+
+    try {
+      const response = await fetch('http://localhost:8080/patients/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestBody),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+
+        // Save patientId in cookies
+        setCookie('patientId', data.patientId, { path: '/' });
+
+        // Redirect to the dashboard
+        window.location.replace('/dashboard');
+      } else {
+        console.error('Error submitting login request:', response.statusText);
+        setMessage('Invalid username or password. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting login request:', error);
+      setMessage('Error submitting login request. Please try again.');
+    }
   };
 
   return (
@@ -48,7 +76,7 @@ function Login() {
           </div>
           <button type="submit" className="btn btn-primary">Submit</button>
         </form>
-        {message && <div className="alert alert-success mt-3">{message}</div>}
+        {message && <div className="alert alert-danger mt-3">{message}</div>}
       </div>
     </div>
   );
