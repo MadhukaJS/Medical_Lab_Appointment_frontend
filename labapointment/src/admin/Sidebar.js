@@ -11,16 +11,16 @@ import Swal from 'sweetalert2';
 
 
 const Sidebar = () => {
-    const navigate = useNavigate(); // Initialize the navigate function
+    const navigate = useNavigate(); 
 
     const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
 
     const handleLogout = () => {
-        console.log('Logout button clicked'); // Add this log to check if the button is clicked
+        console.log('Logout button clicked');
         Cookies.remove('userToken');
-        console.log('User token removed'); // Add this log to check if the user token is removed
-        navigate("/"); // Use navigate to go to the desired route
+        console.log('User token removed'); 
+        navigate("/"); 
         console.log('Navigate to root');
     };
 
@@ -129,32 +129,51 @@ const Sidebar = () => {
                 <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div className="bg-white py-2 collapse-inner rounded">
                         <a className="collapse-item" href="/appointments"><i className="fas fa-plus-circle"></i> View</a>
-                        <a className="collapse-item" href="/organization-details-update"><i class="far fa-edit"></i>Update</a>
-                        <a className="collapse-item" href="/organization-delete"><i class="fas fa-trash"></i> Delete</a>
+                        {/* <a className="collapse-item" href="/organization-details-update"><i class="far fa-edit"></i>Update</a>
+                        <a className="collapse-item" href="/organization-delete"><i class="fas fa-trash"></i> Delete</a> */}
 
                     </div>
                 </div>
             </li>
-            <li className="nav-item">
+
+              <li className="nav-item">
                 <a className="nav-link collapsed d-flex align-items-center justify-content-between" href="#collapseUtilities"
                     data-bs-toggle="collapse" data-bs-target="#collapseUtilities" aria-expanded="true"
                     aria-controls="collapseUtilities">
                     <span>
-                        <i className="fas fa-solid fa-hotel"></i>
+                    <i class="fas fa-print"></i>
                         Reports
                     </span>
                     <i className="fas fa-angle-right"></i>
                 </a>
                 <div id="collapseUtilities" className="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
-                    <div className="bg-white py-2 collapse-inner rounded">
-                    <a className="collapse-item" href="#" onClick={handleCreateRole}>
-              <i className="fas fa-plus-circle"></i> Create</a>                        
-                        <a className="collapse-item" href="/add-reports"><i class="fas fa-user"></i> View</a>
+                    <div className="bg-white py-2 collapse-inner rounded">                        
+                        <a className="collapse-item" href="/add-reports"><i class="fas fa-plus-circle"></i> View</a>
 
                     </div>
                 </div>
-            </li>
+              </li>
+
+              <li className="nav-item">
+                <a className="nav-link collapsed d-flex align-items-center justify-content-between" href="#collapseTestResult"
+                    data-bs-toggle="collapse" data-bs-target="#collapseTestResult" aria-expanded="true"
+                    aria-controls="collapseTestResult">
+                    <span>
+                        <i className="fas fa-solid fa-hotel"></i>
+                        Test Result
+                    </span>
+                    <i className="fas fa-angle-right"></i>
+                </a>
+                <div id="collapseTestResult" className="collapse" aria-labelledby="collapseTestResult"
+                    data-parent="#accordionSidebar">
+                    <div className="bg-white py-2 collapse-inner rounded">                     
+                        <a className="collapse-item" href="/add-test-result"><i class="fas fa-plus-circle"></i> Add</a>
+                        <a className="collapse-item" href="/all-test-result"><i class="fas fa-border-all"></i> View</a>
+
+                    </div>
+                </div>
+              </li>
             
             <hr className="sidebar-divider" />
             <div className="text-center d-none d-md-inline">

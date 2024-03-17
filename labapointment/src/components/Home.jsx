@@ -3,8 +3,11 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css'; 
+import Cookies from 'js-cookie';
 
 export default function Home() {
+  const patientId = Cookies.get('patientId');
+
   return (
     <div>
       {/* Navbar */}
@@ -48,7 +51,14 @@ export default function Home() {
               <li className="nav-item">
                 <a className="nav-link" href="/appointment">Make an appointment</a>
               </li>
-            
+              <li className="nav-item">
+                <p className="nav-link">|</p>
+              </li>
+              <li className="nav-item">
+                {patientId && (
+                  <a href="/dashboard" className="nav-link">My Account</a>
+                )}
+              </li>
             </ul>
           </div>
         </div>
