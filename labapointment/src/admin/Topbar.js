@@ -7,8 +7,8 @@ const Topbar = ({ roleid }) => {
 
   const handleLogout = () => {
     console.log('Logout button clicked');
-    Cookies.remove('userToken');
-    navigate("/");
+    Cookies.remove('adminToken');
+    navigate("/admin-login");
   };
 
   const handleRoleClick = (role) => {

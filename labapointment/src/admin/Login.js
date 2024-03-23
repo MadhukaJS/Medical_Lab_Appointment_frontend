@@ -29,9 +29,10 @@ function AdminLogin() {
       if (response.ok) {
         const data = await response.json();
 
+        // console.log(data)
+
         // Save admin token or other necessary data in cookies
-        // For example:
-        // setCookie('adminToken', data.token, { path: '/' });
+        setCookie('adminToken', data.username, { path: '/' });
 
         // Redirect to the admin dashboard
         window.location.replace('/admin-dashboard');

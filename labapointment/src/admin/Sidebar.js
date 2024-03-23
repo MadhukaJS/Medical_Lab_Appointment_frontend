@@ -14,7 +14,7 @@ const Sidebar = () => {
     const navigate = useNavigate(); 
 
     const [loading, setLoading] = useState(false);
-  const [successMessage, setSuccessMessage] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
 
     const handleLogout = () => {
         console.log('Logout button clicked');
@@ -24,6 +24,15 @@ const Sidebar = () => {
         console.log('Navigate to root');
     };
 
+    useEffect(() => {
+      // Check if the user is logged in
+      const userToken = Cookies.get('adminToken');
+      if (!userToken) {
+          // Redirect to login page if not logged in
+          navigate("/admin-login");
+      }
+      console.log(userToken)
+  }, []);
 
     const handleCreateRole = async () => {
         try {
