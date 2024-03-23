@@ -6,20 +6,7 @@
     flex: 1;
     padding: 20px;
   }
-  
-  .dashboard-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .card {
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    flex: 1 0 300px;
-  }
+
   
   .card h3 {
     margin-top: 0;
@@ -43,4 +30,31 @@
     background-color: #0056b3;
   }
   
+  .dashboard-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Align cards horizontally */
+  }
+  
+  .card {
+    width: 300px; /* Adjust card width as needed */
+    margin: 10px; /* Add margin for spacing between cards */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .card h3 {
+    margin-top: 0;
+  }
+  
+  .card p {
+    margin-bottom: 15px;
+  }
+  
+  .card .btn {
+    display: block;
+    width: 100%;
+  }
   

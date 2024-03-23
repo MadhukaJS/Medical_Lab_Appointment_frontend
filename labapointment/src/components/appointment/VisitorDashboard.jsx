@@ -34,16 +34,21 @@ const VisitorDashboard = () => {
           <div className="card">
             <h3>Test Results</h3>
             <p>View your test results</p>
-            {/* Add routing logic for the "Logout" button */}
+            {/* Add routing logic for the "Test Result" button */}
             <Link to="/my-test-result" className="btn btn-primary">Test Result</Link>
           </div>
           <div className="card">
-      <h3>Logout</h3>
-      <p>Logout from your account.</p>
-      {/* Call the handleLogout function when the button is clicked */}
-      <button onClick={handleLogout} className="btn btn-primary">Logout</button>
-    </div>
-         
+            <h3>Invoice</h3>
+            <p>View and manage your invoices.</p>
+            {/* Add routing logic for the "Invoice" button */}
+            <Link to="/my-invoices" className="btn btn-primary">View Invoices</Link>
+          </div>
+          <div className="card">
+            <h3>Logout</h3>
+            <p>Logout from your account.</p>
+            {/* Call the handleLogout function when the button is clicked */}
+            <button onClick={handleLogout} className="btn btn-primary">Logout</button>
+          </div>
         </div>
       </div>
     </div>
